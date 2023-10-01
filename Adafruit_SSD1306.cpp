@@ -88,13 +88,13 @@
 #define SSD1306_MODE_DATA digitalWrite(dcPin, HIGH);   ///< Data mode
 #endif
 
-#if (ARDUINO >= 157) && !defined(ARDUINO_STM32_FEATHER)
-#define SETWIRECLOCK wire->setClock(wireClk)    ///< Set before I2C transfer
-#define RESWIRECLOCK wire->setClock(restoreClk) ///< Restore after I2C xfer
-#else // setClock() is not present in older Arduino Wire lib (or WICED)
+//#if (ARDUINO >= 157) && !defined(ARDUINO_STM32_FEATHER)
+//#define SETWIRECLOCK wire->setClock(wireClk)    ///< Set before I2C transfer
+//#define RESWIRECLOCK wire->setClock(restoreClk) ///< Restore after I2C xfer
+//#else // setClock() is not present in older Arduino Wire lib (or WICED)
 #define SETWIRECLOCK ///< Dummy stand-in define
 #define RESWIRECLOCK ///< keeps compiler happy
-#endif
+//#endif
 
 #if defined(SPI_HAS_TRANSACTION)
 #define SPI_TRANSACTION_START spi->beginTransaction(spiSettings) ///< Pre-SPI
